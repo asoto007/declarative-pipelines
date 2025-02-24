@@ -8,7 +8,7 @@ pipeline{
     stages{
         stage('SCM'){
             steps{
-                git 'git@github.com:asoto007/declarative-pipelines.git'
+                git 'https://github.com/asoto007/declarative-pipelines.git'
             }
         }
         stage('HELLO'){
