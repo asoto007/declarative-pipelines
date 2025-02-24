@@ -6,7 +6,12 @@ pipeline{
     }
     
     stages{
-        stage('Hello'){
+        stage('SCM'){
+            steps{
+                git 'git@github.com:asoto007/declarative-pipelines.git'
+            }
+        }
+        stage('HELLO'){
             steps{
                 echo 'Hello world!'
                 script{
@@ -14,8 +19,10 @@ pipeline{
                     for (word in words){
                         echo word
                     }
-                }
+                }            
             }
         }
     }
 }
+
+                
