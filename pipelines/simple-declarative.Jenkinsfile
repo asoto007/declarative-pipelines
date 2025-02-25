@@ -1,5 +1,9 @@
 pipeline{
     agent any
+
+    parameters{
+        string(name: 'branch', defaultValue: 'master', description: 'Branch to fetch for the pipeline')
+    }
     
     environment{
         SENTENCE = "I hope your brother's El camino runs forever"
