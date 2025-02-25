@@ -4,6 +4,10 @@ pipeline{
     environment{
         SENTENCE = "I hope your brother's El camino runs forever"
     }
+
+    triggers{
+        cron('0 3 * * 1-5')
+    }
     
     stages{
         stage('SCM'){
