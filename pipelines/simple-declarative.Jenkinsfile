@@ -16,7 +16,7 @@ pipeline{
     stages{
         stage('SCM'){
             steps{
-                git 'https://github.com/asoto007/declarative-pipelines.git'
+                git branch: '${params.branch}', url: 'https://github.com/asoto007/declarative-pipelines.git'
             }
         }
         stage('HELLO'){
