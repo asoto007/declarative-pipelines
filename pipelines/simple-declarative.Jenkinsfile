@@ -26,6 +26,23 @@ pipeline{
                 }            
             }
         }
+
+        stage('build'){
+            steps{
+                echo 'Build the code'
+            }
+        }
+
+        stage('Package'){
+            when{
+                expression{
+                    return param.branch == "release"
+                }
+            }
+            steps{
+                echo 'Packing the code'
+            }
+        }
     }
 }
 
