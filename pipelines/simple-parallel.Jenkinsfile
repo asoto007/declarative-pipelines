@@ -12,24 +12,35 @@ pipeline{
             }
         }
 
-        stage('static analysis'){
-            steps{
-                echo 'perform static analysis'
-                sleep time: 3, unit: 'SECONDS'
-            }
-        }
+        stage('parallel phases'){
+            parallel{
+                stage('static analysis'){
+                    steps{
+                        echo 'perform static analysis'
+                        sleep time: 3, unit: 'SECONDS'
+                        echo 'static analysis completed'
+                    }
+                }
 
-        stage('build'){
-            steps{
-                echo 'Build the code'
-                sleep time: 3, unit: 'SECONDS'
-            }
-        }
+                stage('build and test'){
+                    stages{
+                        stage('build'){
+                            steps{
+                                echo 'Build the code'
+                                sleep time: 3, unit: 'SECONDS'
+                                echo 'build complete'
+                            }
+                        }
 
-        stage('unit test'){
-            steps{
-                echo 'execute unit tests'
-                sleep time: 3, unit: 'SECONDS'
+                        stage('unit test'){
+                            steps{
+                                echo 'execute unit tests'
+                                sleep time: 3, unit: 'SECONDS'
+                                echo 'unit test complete'
+                            }
+                        }
+                    }
+                }
             }
         }
 
