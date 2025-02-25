@@ -1,9 +1,12 @@
 pipeline{
     agent any
 
+    /*
+    REPLACED FOR MULTI-BRANCH PIPELINE
     parameters{
         string(name: 'branch', defaultValue: 'master', description: 'Branch to fetch for the pipeline')
     }
+    */
     
     environment{
         SENTENCE = "I hope your brother's El camino runs forever"
@@ -14,11 +17,14 @@ pipeline{
     }
     
     stages{
+        /*
+        REPLACED FOR MULTI-BRANCH PIPELINE
         stage('SCM'){
             steps{
                 git branch: "${params.branch}", url: 'https://github.com/asoto007/declarative-pipelines.git'
             }
         }
+        */
         stage('HELLO'){
             steps{
                 echo 'Hello world!'
