@@ -46,7 +46,8 @@ pipeline{
         stage('Package'){
             when{
                 expression{
-                    return params.branch == "release"
+                    //return params.branch == "release"  -> REPLACED FOR MULTI-BRANCH PIPELINE
+                    return env.BRANCH_NAME == "release"
                 }
             }
             steps{
