@@ -36,7 +36,7 @@ pipeline{
         stage('Package'){
             when{
                 expression{
-                    return param.branch == "release"
+                    return params.branch == "release"
                 }
             }
             steps{
