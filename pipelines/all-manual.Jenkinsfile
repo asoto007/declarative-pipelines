@@ -6,11 +6,14 @@ pipeline{
             steps{
                 echo 'static-analysis'
                 script{
-                    def number = input message: "Have you performed static analysis and that has resulted in no high or critical issues?"
-                        //ok: "Yes, I have"
-                        parameters: [
-                            string(name: 'Value', description: 'Enter a value equally divisible by three.')
-                        ]
+                    def number = input(
+                            message: "Have you performed static analysis and that has resulted in no high or critical issues?",
+                            //ok: "Yes, I have"
+                            parameters: [
+                                string(name: 'Value', description: 'Enter a value equally divisible by three.')
+                            ]
+                        )
+                        
                         def num = number.toInteger()
 
                         if (num % 3 == 0){
