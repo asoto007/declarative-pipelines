@@ -14,12 +14,14 @@ pipeline{
             steps{
                 echo 'Execute unit test'
                 sh 'mkdir -p tests && echo "test results" >tests/testresults.xml'
+                error "Broken tests break the build"
             }
         }
-        stage('Artifact'){
-            steps{
-                archiveArtifacts artifacts: ARTIFACT_SOURCE_DIRECTORY, followSymlinks: false
-            }
+    }
+
+    post{
+        always{
+            archiveArtifacts artifacts: ARTIFACT_SOURCE_DIRECTORY, followSymlinks: false
         }
     }
 }
