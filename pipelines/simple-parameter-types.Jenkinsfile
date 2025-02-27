@@ -11,12 +11,9 @@ pipeline{
     stages{
         stage('List Parameters'){
             steps{
-                steps{
-
-                    echo "Text: ${params.multiline}"
-                    echo "Is the current user admin?: ${params.isAdmin} 'Yes' : 'No'"
-                    echo "Target Environment: ${params.targetEnvironment}"
-                }
+                echo "Text: ${params.multiline}"
+                echo "Is the current user admin?: ${params.isAdmin} 'Yes' : 'No'"
+                echo "Target Environment: ${params.targetEnvironment}"
             }
         }
     }
