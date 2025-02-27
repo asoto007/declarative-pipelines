@@ -17,7 +17,9 @@ pipeline{
             }
         }
         stage('Artifact'){
-            archiveArtifacts artifacts: ARTIFACT_SOURCE_DIRECTORY, followSymlinks: false
+            steps{
+                archiveArtifacts artifacts: ARTIFACT_SOURCE_DIRECTORY, followSymlinks: false
+            }
         }
     }
 }
